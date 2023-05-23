@@ -13,8 +13,6 @@ import Inspector from 'vite-plugin-vue-inspector'
 import Unocss from 'unocss/vite'
 import Vue from '@vitejs/plugin-vue'
 
-// @ts-expect-error failed to resolve types
-import VueMacros from 'unplugin-vue-macros/vite'
 import WebfontDownload from 'vite-plugin-webfont-dl'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
@@ -26,18 +24,11 @@ export default defineConfig({
   },
 
   plugins: [
-    VueMacros({
-      plugins: {
-        vue:
-        Vue({
-          include: [/\.vue$/],
-          script: {
-            defineModel: true, // 开启defineModel
-          },
-        }),
+    Vue({
+      script: {
+        defineModel: true,
       },
     }),
-
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
       imports: [

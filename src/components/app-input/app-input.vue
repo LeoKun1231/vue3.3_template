@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-const { name } = withDefaults($defineProps<{
+const { name } = withDefaults(defineProps<{
   name: string
 }>(), {
   name: 'defaultName',
@@ -16,4 +16,5 @@ const inputValue = defineModel<string>()
   </div>
 </template>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+</style>
