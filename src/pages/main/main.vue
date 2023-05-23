@@ -2,10 +2,12 @@
  * @Author: leo
  * @Date: 2023-05-23 16:39:42
  * @LastEditors: leo
- * @LastEditTime: 2023-05-23 18:02:29
+ * @LastEditTime: 2023-05-23 23:24:22
  * @Description:
 -->
 <script setup lang="ts">
+const inputValue = ref<string>('')
+
 const countStore = useCouterStore()
 const { count } = storeToRefs(countStore)
 
@@ -20,6 +22,8 @@ function changeColor() {
 
 <template>
   <div class="main">
+    <AppInput v-model="inputValue" name="asasdasd" />
+    <h3>inputValue: {{ inputValue }}</h3>
     <h1>{{ count }}</h1>
     <div i-ep-search icon-btn />
     <div i-carbon-4k icon-btn />

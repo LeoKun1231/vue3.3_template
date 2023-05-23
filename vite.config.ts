@@ -2,16 +2,16 @@
  * @Author: leo
  * @Date: 2023-05-23 16:17:29
  * @LastEditors: leo
- * @LastEditTime: 2023-05-23 17:30:52
+ * @LastEditTime: 2023-05-23 22:28:20
  * @Description:
  */
 import path from 'node:path'
 import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Inspector from 'vite-plugin-vue-inspector'
 import Unocss from 'unocss/vite'
+import Vue from '@vitejs/plugin-vue'
 
 // @ts-expect-error failed to resolve types
 import VueMacros from 'unplugin-vue-macros/vite'
@@ -28,8 +28,12 @@ export default defineConfig({
   plugins: [
     VueMacros({
       plugins: {
-        vue: Vue({
+        vue:
+        Vue({
           include: [/\.vue$/],
+          script: {
+            defineModel: true, // 开启defineModel
+          },
         }),
       },
     }),
@@ -52,6 +56,7 @@ export default defineConfig({
         'src/store/**',
         'src/services/**',
         'src/utils/**',
+        'src/components/**',
       ],
       vueTemplate: true,
     }),
